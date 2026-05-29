@@ -140,10 +140,8 @@ def input_error(func):
 # ── Parser ───────────────────────────────────────────────────────────────────
 
 def parse_input(user_input):
-    parts = user_input.strip().split()
-    if not parts:
-        return "", []
-    return parts[0].lower(), parts[1:]
+    cmd, *args = user_input.strip().split()
+    return cmd.lower(), args
 
 
 # ── Help ─────────────────────────────────────────────────────────────────────
@@ -263,7 +261,7 @@ def main():
             print(f"\n{RED}Invalid command.{RESET}")
             continue
 
-        command, args = parse_input(user_input)
+        command, *args = parse_input(user_input)
 
         if command in ["close", "exit"]:
             print(f"\n{BLUE}Good bye!{RESET}")
