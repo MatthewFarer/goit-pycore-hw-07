@@ -261,7 +261,7 @@ def main():
             print(f"\n{RED}Invalid command.{RESET}")
             continue
 
-        command, *args = parse_input(user_input)
+        command, args = parse_input(user_input)
 
         if command in ["close", "exit"]:
             print(f"\n{BLUE}Good bye!{RESET}")
